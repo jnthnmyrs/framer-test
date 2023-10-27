@@ -93,38 +93,38 @@ const MotionTestDiv = () => {
             tag.src = "https://www.youtube.com/iframe_api"
             const firstScriptTag = document.getElementsByTagName("script")[0]
             firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag)
-      
+
             window.onYouTubeIframeAPIReady = () => {
                 // @ts-expect-error
-              const newPlayer = new window.YT.Player("player", {
-                height: "100%",
-                width: "100%",
-                videoId: "jzj7STruKgQ",
-                playerVars: {
-                    autoplay: 1,
-                    controls: 1,
-                    // disablekb: 1,
-                    // enablejsapi: 1,
-                    fs: 1,
-                    // loop: 1,
-                    modestbranding: 1,
-                    // playsinline: 1,
-                    // rel: 0,
-                    showinfo: 0,
-                },
-                events: {
-                  onStateChange: (event: any) => {
-                    // @ts-expect-error
-                    if (event.data === window.YT.PlayerState.ENDED) {
-                      console.log("Video finished playing")
-                        newPlayer.destroy()
-                        setScore(0)
-                        launchToast("Back to the game! 👋")
+                const newPlayer = new window.YT.Player("player", {
+                    height: "100%",
+                    width: "100%",
+                    videoId: "jzj7STruKgQ",
+                    playerVars: {
+                        autoplay: 1,
+                        controls: 1,
+                        // disablekb: 1,
+                        // enablejsapi: 1,
+                        fs: 1,
+                        // loop: 1,
+                        modestbranding: 1,
+                        // playsinline: 1,
+                        // rel: 0,
+                        showinfo: 0,
+                    },
+                    events: {
+                        onStateChange: (event: any) => {
+                            // @ts-expect-error
+                            if (event.data === window.YT.PlayerState.ENDED) {
+                                console.log("Video finished playing")
+                                newPlayer.destroy()
+                                setScore(0)
+                                launchToast("Back to the game! 👋")
+                            }
+                        }
                     }
-                  }
-                }
-              })
-              setPlayer(newPlayer)
+                })
+                setPlayer(newPlayer)
             }
 
 
@@ -148,15 +148,15 @@ const MotionTestDiv = () => {
                                     onClick={makeItDoStuff}
                                     className={squareClasses()}
                                     initial={{
-                                        x: `${Math.random() * 90 - 45}vw`,
-                                        y: `${Math.random() * 90 - 45}vh`,
+                                        x: `${Math.random() * 90 - 45}dvw`,
+                                        y: `${Math.random() * 90 - 45}dvh`,
                                         opacity: 1,
                                         scale: 0.5,
                                         rotate: 0,
                                     }}
                                     animate={{
-                                        x: `${xValue}vw`,
-                                        y: `${yValue}vh`,
+                                        x: `${xValue}dvw`,
+                                        y: `${yValue}dvh`,
                                         rotate: stuff.rotation,
                                         scale: stuff.scale,
                                         opacity: stuff.opacity,

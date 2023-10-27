@@ -24,7 +24,7 @@ export default function RootLayout({
         <div className={inter.className}>
 
           <Toaster />
-          <div className=' w-screen h-screen bg-stone-900'>
+          <div className=' w-[100dvw] h-[100dvh] bg-stone-900'>
 
             {children}
 
