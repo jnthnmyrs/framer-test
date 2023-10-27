@@ -36,9 +36,9 @@ const MotionTestDiv = () => {
 
     const squareClasses = () => {
         if (!firstClick) {
-            return "w-96 h-96 bg-orange-200  animate-pulse rounded-xl hover:bg-orange-400 cursor-pointer active:bg-orange-600 transition-colors"
+            return "w-64 h-64 bg-orange-200  animate-pulse rounded-xl hover:bg-orange-400 cursor-pointer active:bg-orange-600 transition-colors"
         } else {
-            return "w-96 h-96 bg-orange-600 rounded-xl hover:bg-orange-700 cursor-pointer active:bg-orange-900 transition-colors"
+            return "w-64 h-64 bg-orange-600 rounded-xl hover:bg-orange-700 cursor-pointer active:bg-orange-900 transition-colors"
         }
     }
 
@@ -63,8 +63,8 @@ const MotionTestDiv = () => {
             opacity: 1,
         })
 
-        setXValue(Math.random() * 80 - 40)
-        setYValue(Math.random() * 80 - 40)
+        setXValue(Math.random() * 40 - 20)
+        setYValue(Math.random() * 60 - 30)
 
         if (stuff.rotation >= 1078) {
             setStuff({
@@ -164,7 +164,7 @@ const MotionTestDiv = () => {
                                     transition={{ duration: 0.5, type: "spring" }}
                                     whileTap={{ scale: 0.8 }}
                                 />
-                                <div className="grid grid-cols-1 gap-8 md:gap-2 pointer-events-none user-select-none">
+                                <div className="grid grid-cols-1 gap-2 md:gap-2 pointer-events-none user-select-none">
 
                                     <p className="text-white z-50 text-4xl pointer-events-none user-select-none"><span className="text-white/50">ROTATION:</span> {stuff.rotation}°</p>
                                     <p className="text-white z-50 text-4xl pointer-events-none user-select-none"><span className="text-white/50">X:</span> {Math.round(xValue)}</p>
