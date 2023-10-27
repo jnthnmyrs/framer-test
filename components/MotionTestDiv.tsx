@@ -69,9 +69,9 @@ const MotionTestDiv = () => {
             switch (score) {
                 case 0: {
                     launchToast("✨ You did it! Now for your prize... ✨ ")
-                    setTimeout(() => {
-                        router.push("https://www.youtube.com/watch?v=jzj7STruKgQ")
-                    }, 2000)
+                    // setTimeout(() => {
+                    //     router.push("https://www.youtube.com/watch?v=jzj7STruKgQ")
+                    // }, 2000)
                 }
                     break;
             }
@@ -79,8 +79,15 @@ const MotionTestDiv = () => {
     }
 
     return (
+
+
+
+
         <>
-            <div className="flex flex-col justify-between ">
+            {
+                score == 0
+                    ? <>
+                        <div className="flex flex-col justify-between ">
                 <div className="grid mx-auto justify-center grid-cols-1 md:grid-cols-2 gap-16">
                     <motion.div
                         onClick={makeItDoStuff}
@@ -112,6 +119,7 @@ const MotionTestDiv = () => {
 
                     </div>
 
+                    
                 </div>
                 {/* <div className="relative flex justify-end">
                     <div className=" text-white flex flex-col items-center justify-center">
@@ -121,6 +129,18 @@ const MotionTestDiv = () => {
                     </div>
                 </div> */}
             </div>
+                    </>
+                    : <>
+                        <div className="absolute top-0 left-0 h-screen w-screen">
+
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jzj7STruKgQ?autoplay=1" title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+
+                        </div>
+                    </>
+            }
+
+            
         </>
     )
 }
